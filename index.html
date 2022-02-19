@@ -18,20 +18,69 @@
       <div class="scene--loading__background background"></div>
     </div>
     <div class="scene scene--main">
-      <div class="scene--main__mascot-wrapper"></div>
-      <div class="scene--main__content-wrapper">
-        <div class="scene--main__brand-name-wrapper">
-          <span class="brand-name">ToreChoke</span>
+      <div class="scene--main__grid-wrapper">
+        <div class="scene--main__mascot-wrapper">
+          <img
+            class="mascot mascot--background"
+            src="./assets/mascot background.png"
+            alt="mascot"
+          />
+          <img
+            class="mascot mascot--pose mascot--pose--1"
+            src="./assets/mascot pose 1.png"
+            alt="mascot"
+          />
+          <img
+            class="mascot mascot--pose mascot--pose--2 invisible"
+            src="./assets/mascot pose 2.png"
+            alt="mascot"
+          />
+          <img
+            class="mascot mascot--pose mascot--pose--3 invisible"
+            src="./assets/mascot pose 3.png"
+            alt="mascot"
+          />
+          <img
+            class="mascot mascot--pose mascot--pose--4 invisible"
+            src="./assets/mascot pose 4.png"
+            alt="mascot"
+          />
         </div>
-        <div class="scene--main__modal-wrapper">
-          <div class="modal">
-            <div class="modal__loading">Лоадинг ...</div>
-            <div class="modal__message">Найс :thumb-up</div>
-            <div class="modal__approve">Торчок устал. Пора сменить позу</div>
+        <div class="scene--main__content-wrapper">
+          <div class="scene--main__brand-name-wrapper">
+            <span class="brand-name">ToreChoke</span>
+          </div>
+          <div class="scene--main__modal-wrapper">
+            <div class="modal">
+              <div class="modal__content">
+                <div class="modal__loading"><p>Лоадинг ...</p></div>
+                <div class="modal__approve invisible">
+                  <div class="emoji-wrapper">
+                    <p>Найс</p>
+
+                    <img class="emoji" src="/assets/thumb up.png" alt="nice" />
+                  </div>
+                </div>
+                <div class="modal__message invisible">
+                  <p>
+                    <span class="text-yellow"> Торчок </span>
+                    <span class="text-purple">устал</span>.
+                  </p>
+                  <p>
+                    <span class="text-green">Пора</span>
+                    <button class="modal__button colored-button">
+                      сменить позу</button
+                    >.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="scene--main__background background"></div>
     </div>
+
     <script src="./src/app.js"></script>
   </body>
 </html>
