@@ -1,2 +1,2 @@
 "use strict";
-alert("check ts");
+alert(" ts");
