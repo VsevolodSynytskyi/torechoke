@@ -27,8 +27,8 @@ $ease-in-out: cubic-bezier(1, 0, 0, 1);
 }
 
 html {
-  font-size: 20px;
-  @include media-large {
+  font-size: 16px;
+  @include media-desktop {
     font-size: 20px;
   }
   overflow: hidden;
@@ -92,6 +92,7 @@ button {
 }
 
 .mascot {
+  user-select: none;
   pointer-events: none;
   &--pose {
     transition: all $ease-in-out calc(#{$time-unit});
@@ -124,10 +125,16 @@ button {
       animation: brandnameappear $time-unit forwards $ease-out,
         brandnamedisappear $time-unit forwards $ease-in $time-unit;
     }
-    &__logo {
+    &__logo-wrapper {
+      width: 12rem;
+      height: 12rem;
       opacity: 0;
       animation: logoappear $time-unit forwards $ease-out,
         logodisappear $time-unit forwards $time-unit $ease-in;
+    }
+    &__logo {
+      height: 100%;
+      width: 100%;
     }
     &__background {
       background-color: $color-darkest;
@@ -138,24 +145,25 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    $mascot-size: min(calc(200vw / 3 - 8rem), calc(200vh / 3));
+    $mascot-size-mobile: calc(100vw - 4rem);
+    $mascot-size-desktop: min(calc(200vw / 4 - 8rem), calc(200vh / 3));
     $grid-gap-size: 4rem;
-    $grid-cell-size: calc((#{$mascot-size} - #{$grid-gap-size}) / 2);
-    &__grid-wrapper {
-      gap: $grid-gap-size;
+    &__layout {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: flex-end;
       width: 100%;
       height: 100%;
-      padding: 2rem;
+      padding: 1rem;
 
-      @include media-large {
+      @include media-desktop {
+        gap: $grid-gap-size;
+        padding: 2rem;
         padding: 0;
         width: auto;
         height: auto;
-        display: grid;
-        grid-template-columns: repeat(3, #{$grid-cell-size});
+        flex-direction: row;
+        align-items: center;
       }
     }
     &__mascot-wrapper {
@@ -165,22 +173,23 @@ button {
       top: 0;
       bottom: 0;
       margin: auto;
-      width: 100%;
-
-      height: $mascot-size;
+      width: $mascot-size-mobile;
+      height: $mascot-size-mobile;
       animation: fadein $time-unit $ease-out calc(#{$time-unit} * 2);
-      @include media-large {
+      @include media-desktop {
         animation: mascotappear $time-unit $ease-out calc(#{$time-unit} * 2),
           mascotshift $time-unit $ease-in-out calc(#{$time-unit} * 3);
         grid-column: span 2;
+        width: $mascot-size-desktop;
+        height: $mascot-size-desktop;
       }
       .mascot {
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
-        height: auto;
-        @include media-large {
+        height: 100%;
+        @include media-desktop {
           height: 100%;
         }
       }
@@ -188,7 +197,7 @@ button {
     &__content-wrapper {
       margin: 0;
       position: relative;
-      width: 100%;
+      width: max-content;
       left: 0;
       top: 0;
       right: 0;
@@ -199,10 +208,12 @@ button {
       gap: 1rem;
       justify-content: center;
       opacity: 0;
+      width: 100%;
       animation: fadein calc(#{$time-unit} * 0.5) $ease-out
         calc(#{$time-unit} * 3.5) forwards;
-      @include media-large {
+      @include media-desktop {
         margin: auto;
+        width: unset;
       }
       .brand-name {
         font-size: 1.5rem;
@@ -228,6 +239,7 @@ button {
 }
 
 .modal {
+  user-select: none;
   background-color: $color-darkest;
   border-radius: 1rem;
   padding: 1.5rem;
@@ -238,6 +250,9 @@ button {
   align-items: center;
   justify-content: center;
   box-shadow: 0px 1.5rem 1rem rgba(0, 0, 0, 0.15);
+  @include media-desktop {
+    padding: 3em;
+  }
   &::before {
     content: "";
     width: calc(100% - 0.5rem);

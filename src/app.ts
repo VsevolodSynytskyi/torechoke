@@ -20,7 +20,7 @@ const modalTextElements = [
   modalMessageElement,
 ];
 
-const gameDelaySeconds = 4;
+const gameDelaySeconds = 1.5;
 let poseIndex = 0;
 
 // Utilities
