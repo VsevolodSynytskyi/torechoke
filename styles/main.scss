@@ -84,7 +84,7 @@ button {
 }
 
 .background {
-  position: fixed;
+  position: absolute;
   z-index: -1;
   top: 0;
   width: 100%;
@@ -111,6 +111,7 @@ button {
   height: 100%;
   left: 0;
   top: 0;
+  overflow: hidden;
   &--loading {
     z-index: 10;
     display: flex;
